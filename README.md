@@ -2,7 +2,7 @@
 
 Template project for exposing Http endpoints with CRUD functionality.
 The CRUD layer's functionality works generically with a given Go struct.
-Too enhance fullstack rapid prototyping, a converter tool is provided to convert said Go structs to TypeScript models.
+To enhance fullstack rapid prototyping, a converter tool is provided to convert said Go structs to TypeScript models.
 
 Example includes Get, GetAll, Create, Update, and Delete endpoints for an employee.
 
