@@ -12,13 +12,9 @@ func GenerateTypeScriptModel(entity interface{}) {
 	// Not interested in backing these files up
 	converter.BackupDir = ""
 
-	err := converter.ConvertToFile("./models/" + DeriveEntityName(entity) + ".ts")
+	err := converter.ConvertToFile("./models/" + reflect.TypeOf(entity).Name() + ".ts")
 
 	if err != nil {
 		panic(err.Error())
 	}
-}
-
-func DeriveEntityName(entity interface{}) string {
-	return reflect.TypeOf(entity).Elem().Name()
 }
