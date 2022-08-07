@@ -1,6 +1,7 @@
 package employee
 
 import (
+	"leave.gg/pkg"
 	"leave.gg/pkg/crud"
 
 	"github.com/gin-gonic/gin"
@@ -11,7 +12,7 @@ type Employee struct {
 	gorm.Model
 	Name string `json:"name" gorm:"type:string; size:20; not null" binding:"required"`
 	// ManagerID uint "This is how you set a relationship"
-	// Manager   Manager
+	Manager string `json:"Manager"`
 }
 
 type EmployeeController struct {
@@ -23,6 +24,7 @@ func NewEmployeeController(router *gin.Engine, crud *crud.CrudController) *Emplo
 	c := &EmployeeController{router, crud}
 	c.AutoMigrate(&Employee{})
 	c.registerRoutes()
+	pkg.GenerateTypeScriptModel(Employee{})
 
 	return c
 }
