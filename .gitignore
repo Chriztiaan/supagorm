@@ -2,3 +2,4 @@
 *.exe
 todo.txt
 models/*
+.env
