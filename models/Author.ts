@@ -9,22 +9,20 @@ export class Time {
 
     }
 }
-export class Post {
+export class Author {
     id: string;
     createdAt: Time;
     updatedAt: Time;
-    title: string;
-    content: string;
-    authorId: string;
+    name: string;
+    userId: string;
 
     constructor(source: any = {}) {
         if ('string' === typeof source) source = JSON.parse(source);
         this.id = source["id"];
         this.createdAt = this.convertValues(source["createdAt"], Time);
         this.updatedAt = this.convertValues(source["updatedAt"], Time);
-        this.title = source["title"];
-        this.content = source["content"];
-        this.authorId = source["authorId"];
+        this.name = source["name"];
+        this.userId = source["userId"];
     }
 
 	convertValues(a: any, classs: any, asMap: boolean = false): any {
